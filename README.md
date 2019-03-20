@@ -1,6 +1,6 @@
 # React Data Visualization
 
-A web application that shows current value of Bitcoin and other currencies - ReactJS project
+A web application that shows current value of Bitcoin and others currencies - ReactJS project
 
 ## Contributing
 
