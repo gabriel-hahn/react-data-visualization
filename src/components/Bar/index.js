@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import { Creators as BarActions } from "../../store/ducks/bar";
 
 import ControlButton from "../ControlButton";
 
@@ -11,40 +15,55 @@ const VALUES = {
 
 class Bar extends Component {
     state = {
-        current: VALUES.DASHBOARD,
         firstVisit: false
     };
 
     componentDidMount() {
+        const { setCurrent } = this.props;
+
         const cryptoDashData = JSON.parse(localStorage.getItem("cryptoDash"));
 
         if (!cryptoDashData) {
-            this.setState({ current: VALUES.SETTINGS, firstVisit: true });
+            this.setState({ firstVisit: true });
+            setCurrent(VALUES.SETTINGS);
         }
     }
 
     handleClick = name => {
-        this.setState({ current: name });
+        const { setCurrent } = this.props;
+
+        setCurrent(name);
     };
 
     render() {
+        const { current } = this.props;
+
         return (
             <Container>
                 <Logo>CryptoDash</Logo>
                 <div />
                 <ControlButton
-                    select={this.handleClick}
+                    select={() => this.handleClick(VALUES.DASHBOARD)}
                     name={VALUES.DASHBOARD}
-                    active={this.state.current === VALUES.DASHBOARD}
+                    active={current === VALUES.DASHBOARD}
                 />
                 <ControlButton
-                    select={this.handleClick}
+                    select={() => this.handleClick(VALUES.SETTINGS)}
                     name={VALUES.SETTINGS}
-                    active={this.state.current === VALUES.SETTINGS}
+                    active={current === VALUES.SETTINGS}
                 />
             </Container>
         );
     }
 }
 
-export default Bar;
+const mapDispatchToProps = dispatch => bindActionCreators(BarActions, dispatch);
+
+const mapStateToProps = state => ({
+    current: state.bar.current
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Bar);

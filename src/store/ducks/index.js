@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
 
+import bar from "./bar";
+
 const reducers = combineReducers({
-    example: () => []
+    bar
 });
 
 export default reducers;

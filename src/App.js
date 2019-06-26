@@ -1,16 +1,19 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { Provider } from "react-redux";
 
 import "./config/reactotron";
 import { GlobalStyle } from "./styles/global";
+
+import store from "./store";
 
 import Main from "./pages/Main";
 
 function App() {
     return (
-        <Fragment>
+        <Provider store={store}>
             <GlobalStyle />
             <Main />
-        </Fragment>
+        </Provider>
     );
 }
 
