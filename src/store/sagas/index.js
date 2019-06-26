@@ -6,6 +6,6 @@ import { getCoins } from './coins';
 
 export default function* rootSaga() {
     yield all([
-        takeLatest(CoinsTypes.GET_COINS, getCoins)
+        takeLatest(CoinsTypes.GET_COINS_REQUEST, getCoins)
     ]);
 }

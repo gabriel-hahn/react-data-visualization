@@ -6,9 +6,9 @@ import { Creators as ErrorActions } from '../ducks/error';
 
 export function* getCoins() {
     try {
-        const response = yield cc.coinList();
-        console.log(response);
-    } catch(err) {
-        console.log(err);
+        const response = yield call(cc.coinList());
+        yield put(CoinsActions.setCoins(response.Data));
+    } catch (err) {
+        yield put(ErrorActions.setError('Something wrong happened!'))
     }
 }
