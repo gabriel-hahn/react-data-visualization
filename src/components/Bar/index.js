@@ -11,8 +11,17 @@ const VALUES = {
 
 class Bar extends Component {
     state = {
-        current: VALUES.DASHBOARD
+        current: VALUES.DASHBOARD,
+        firstVisit: false
     };
+
+    componentDidMount() {
+        const cryptoDashData = JSON.parse(localStorage.getItem("cryptoDash"));
+
+        if (!cryptoDashData) {
+            this.setState({ current: VALUES.SETTINGS, firstVisit: true });
+        }
+    }
 
     handleClick = name => {
         this.setState({ current: name });
