@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 
-import { Container } from "./styles";
+import Bar from "../../components/Bar";
 
-export default class Main extends Component {
+import { Container, Title } from "./styles";
+
+class Main extends Component {
     render() {
         return (
             <Container>
-                <h1>Welcome to CryptoDash</h1>
+                <Bar />
+                <Title>Welcome to CryptoDash</Title>
             </Container>
         );
     }
 }
+
+export default Main;
