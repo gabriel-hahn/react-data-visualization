@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 
+import "./config/reactotron";
 import { GlobalStyle } from "./styles/global";
 
 import Main from "./pages/Main";
