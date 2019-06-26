@@ -4,7 +4,13 @@ import { Button } from "./styles";
 
 class ControlButton extends Component {
     render() {
-        return <Button active={this.props.active}>{this.props.name}</Button>;
+        const { select, name, active } = this.props;
+
+        return (
+            <Button onClick={() => select(name)} active={active}>
+                {name}
+            </Button>
+        );
     }
 }
 
