@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
     display: grid;
@@ -9,4 +10,9 @@ export const Container = styled.div`
 
 export const Logo = styled.div`
     font-size: 1.5em;
+`;
+
+export const RouterLink = styled(Link)`
+    text-decoration: none;
+    color: #fff;
 `;

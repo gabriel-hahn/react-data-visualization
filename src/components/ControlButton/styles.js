@@ -2,9 +2,10 @@ import styled, { css } from "styled-components";
 
 export const Button = styled.div`
     cursor: pointer;
+    width: 20px;
     ${props =>
         props.active &&
         css`
-            text-shadow: 0px 0px 60px #03ff03;
+            border-bottom: 2px solid #fff;
         `}
 `;
