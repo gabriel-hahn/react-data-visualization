@@ -1,11 +1,11 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import error from "./error";
-import coins from "./coins";
+import error from './error';
+import coins from './coins';
 
 const reducers = combineReducers({
-    coins,
-    error
+  coins,
+  error,
 });
 
 export default reducers;
