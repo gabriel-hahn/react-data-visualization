@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Creators as CoinsActions } from '../../store/ducks/coins';
 
 import ConfirmButton from '../../components/ConfirmButton';
+import CoinGrid from '../../components/CoinGrid';
 
 import { Container, Title } from './styles';
 
@@ -32,6 +33,7 @@ class Settings extends Component {
           <Title>Welcome to CryptoDash, please select your favorite coins to begin</Title>
         )}
         <ConfirmButton click={this.handleConfirmButtonClick} />
+        <CoinGrid />
       </Container>
     );
   }

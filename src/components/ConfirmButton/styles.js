@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { fontSizeMedium, greenBoxShadow, colorTertiary } from '../../styles/shared';
 
 export const Container = styled.div`
   display: grid;
@@ -7,6 +8,11 @@ export const Container = styled.div`
 
 export const Button = styled.div`
   margin: 20px;
-  color: green;
+  color: ${colorTertiary};
+  ${fontSizeMedium}
   cursor: pointer;
+
+  &:hover {
+    ${greenBoxShadow}
+  }
 `;
