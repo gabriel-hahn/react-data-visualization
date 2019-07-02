@@ -11,3 +11,5 @@ export const CoinImage = styled.img`
   margin: 0px 15px;
   height: 45px;
 `;
+
+export const CoinText = styled.h2``;

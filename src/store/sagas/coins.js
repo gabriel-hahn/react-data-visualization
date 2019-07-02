@@ -6,7 +6,7 @@ import { Creators as ErrorActions } from '../ducks/error';
 
 export function* getCoins() {
   try {
-    const { data } = yield call(api.get, '/data/top/totalvolfull?limit=100&tsym=USD');
+    const { data } = yield call(api.get, '/data/top/totalvolfull?limit=30&tsym=USD');
     yield put(CoinsActions.setCoins(data.Data));
   } catch (err) {
     yield put(ErrorActions.setError('Something wrong happened!'));

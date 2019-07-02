@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import { SelectableTile } from '../../styles/tile';
-import { Container, CoinImage } from './styles';
+import { SelectableTile, DisableTile, DeletableTile } from '../../styles/tile';
+import { Container, CoinImage, CoinText } from './styles';
 
 class CoinGrid extends Component {
   componentDidMount() {}
@@ -34,7 +34,7 @@ class CoinGrid extends Component {
         {coins.length > 0
           && coins.map(coin => (
             <SelectableTile key={coin.CoinInfo.Id}>
-              {coin.CoinInfo.FullName}
+              <CoinText>{coin.CoinInfo.FullName}</CoinText>
               <CoinImage src={`${API_URL}${coin.CoinInfo.ImageUrl}`} alt={coin.CoinInfo.FullName} />
             </SelectableTile>
           ))}

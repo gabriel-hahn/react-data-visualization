@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.div`
-  margin: 20px;
+  margin: 50px;
   color: ${colorTertiary};
   ${fontSizeMedium}
   cursor: pointer;
