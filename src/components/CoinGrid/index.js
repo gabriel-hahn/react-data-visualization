@@ -1,30 +1,50 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import { SelectableTile } from '../../styles/tile';
-import { Container } from './styles';
+import { Container, CoinImage } from './styles';
 
 class CoinGrid extends Component {
   componentDidMount() {}
 
-  getCoinsToDisplay = coinList => Object.keys(coinList).slice(0, 100);
+  static propTypes = {
+    coins: PropTypes.arrayOf(
+      PropTypes.shape({
+        CoinInfo: PropTypes.shape({
+          Id: PropTypes.number.isRequired,
+          FullName: PropTypes.string.isRequired,
+          ImageUrl: PropTypes.string.isRequired,
+        }),
+      }),
+    ),
+  };
+
+  static defaultProps = {
+    coins: [],
+  };
 
   render() {
+    const API_URL = 'http://cryptocompare.com/';
     const { coins } = this.props;
 
     return (
       <Container>
-        {Object.keys(coins).map(coinKey => (
-          <SelectableTile key={coinKey}>{coinKey}</SelectableTile>
-        ))}
+        {coins.length > 0
+          && coins.map(coin => (
+            <SelectableTile key={coin.CoinInfo.Id}>
+              {coin.CoinInfo.FullName}
+              <CoinImage src={`${API_URL}${coin.CoinInfo.ImageUrl}`} alt={coin.CoinInfo.FullName} />
+            </SelectableTile>
+          ))}
       </Container>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  coins: state.coins.items,
+  coins: state.coins.items || [],
 });
 
 export default connect(mapStateToProps)(CoinGrid);

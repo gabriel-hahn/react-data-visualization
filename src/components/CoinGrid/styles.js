@@ -5,3 +5,9 @@ export const Container = styled.div`
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 15px;
 `;
+
+export const CoinImage = styled.img`
+  padding-top: 10px;
+  margin: 0px 15px;
+  height: 45px;
+`;
