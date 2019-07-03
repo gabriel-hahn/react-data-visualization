@@ -16,11 +16,14 @@ class Settings extends Component {
   };
 
   componentDidMount() {
-    const { getCoinsRequest } = this.props;
-
+    const { getCoinsRequest, addFavoriteStorage } = this.props;
     const favorites = localStorage.getItem('dataFavorites');
 
-    if (!favorites) getCoinsRequest();
+    getCoinsRequest();
+
+    if (favorites) {
+      addFavoriteStorage(JSON.parse(favorites));
+    }
   }
 
   handleConfirmButtonClick = () => {

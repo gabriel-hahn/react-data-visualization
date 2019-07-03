@@ -9,8 +9,6 @@ import { SelectableTile } from '../../styles/tile';
 import { Container, CoinImage, CoinText } from './styles';
 
 class CoinGrid extends Component {
-  componentDidMount() {}
-
   static propTypes = {
     coins: PropTypes.arrayOf(
       PropTypes.shape({
@@ -40,9 +38,9 @@ class CoinGrid extends Component {
   };
 
   handleCoinClick = (coin) => {
-    const { addFavorite, removeFavorite, favorites } = this.props;
+    const { addFavorite, removeFavorite } = this.props;
 
-    if (favorites.includes(coin)) {
+    if (this.isFavorite(coin)) {
       removeFavorite(coin);
     } else {
       addFavorite(coin);
@@ -51,6 +49,7 @@ class CoinGrid extends Component {
 
   isFavorite = (coin) => {
     const { favorites } = this.props;
+
     return favorites.filter(favorite => favorite.CoinInfo.Id === coin.CoinInfo.Id).length > 0;
   };
 
