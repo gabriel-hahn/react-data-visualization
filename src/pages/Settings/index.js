@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Creators as CoinsActions } from '../../store/ducks/coins';
+import { Creators as FavoritesActions } from '../../store/ducks/favorites';
 
 import ConfirmButton from '../../components/ConfirmButton';
 import CoinGrid from '../../components/CoinGrid';
@@ -46,7 +47,7 @@ class Settings extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(CoinsActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({...CoinsActions, ...FavoritesActions}, dispatch);
 
 export default connect(
   null,

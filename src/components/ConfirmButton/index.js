@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { Creators as FavoritesActions } from '../../store/ducks/favorites';
 
 import { Container, Button } from './styles';
 
 class ConfirmButton extends Component {
   handleButtonClick = () => {
-    const { favorites } = this.props;
+    const { favorites, getPricesRequest } = this.props;
     localStorage.setItem('dataFavorites', JSON.stringify(favorites));
+
+    getPricesRequest();
   };
 
   render() {
@@ -21,7 +26,9 @@ class ConfirmButton extends Component {
 }
 
 const mapStateToProps = state => ({
-  favorites: state.coins.favorites || [],
+  favorites: state.favorites.items || [],
 });
 
-export default connect(mapStateToProps)(ConfirmButton);
+const mapDispatchToProps = dispatch => bindActionCreators(FavoritesActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConfirmButton);

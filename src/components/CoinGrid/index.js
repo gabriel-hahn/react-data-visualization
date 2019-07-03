@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import { Creators as CoinsActions } from '../../store/ducks/coins';
+import { Creators as FavoritesActions } from '../../store/ducks/favorites';
 
 import { SelectableTile } from '../../styles/tile';
 import { Container, CoinImage, CoinText } from './styles';
@@ -79,13 +79,13 @@ const mapStateToProps = state => ({
   coins:
     state.coins.items.filter(
       coin => !coin.excluded
-        || state.coins.favorites.filter(favorite => favorite.CoinInfo.Id === coin.CoinInfo.Id).length
+        || state.favorites.items.filter(favorite => favorite.CoinInfo.Id === coin.CoinInfo.Id).length
           > 0,
     ) || [],
-  favorites: state.coins.favorites || [],
+  favorites: state.favorites.items || [],
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(CoinsActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(FavoritesActions, dispatch);
 
 export default connect(
   mapStateToProps,
