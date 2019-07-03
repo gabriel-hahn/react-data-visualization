@@ -49,16 +49,21 @@ class CoinGrid extends Component {
     }
   };
 
+  isFavorite = (coin) => {
+    const { favorites } = this.props;
+    return favorites.filter(favorite => favorite.CoinInfo.Id === coin.CoinInfo.Id).length > 0;
+  };
+
   render() {
     const API_URL = 'http://cryptocompare.com/';
-    const { coins, favorites } = this.props;
+    const { coins } = this.props;
 
     return (
       <Container>
         {coins.length > 0
           && coins.map(coin => (
             <SelectableTile
-              selected={favorites.includes(coin)}
+              selected={this.isFavorite(coin)}
               key={coin.CoinInfo.Id}
               onClick={() => this.handleCoinClick(coin)}
             >
@@ -73,7 +78,11 @@ class CoinGrid extends Component {
 
 const mapStateToProps = state => ({
   coins:
-    state.coins.items.filter(coin => !coin.excluded || state.coins.favorites.includes(coin)) || [],
+    state.coins.items.filter(
+      coin => !coin.excluded
+        || state.coins.favorites.filter(favorite => favorite.CoinInfo.Id === coin.CoinInfo.Id).length
+          > 0,
+    ) || [],
   favorites: state.coins.favorites || [],
 });
 

@@ -18,7 +18,9 @@ class Settings extends Component {
   componentDidMount() {
     const { getCoinsRequest } = this.props;
 
-    getCoinsRequest();
+    const favorites = localStorage.getItem('dataFavorites');
+
+    if (!favorites) getCoinsRequest();
   }
 
   handleConfirmButtonClick = () => {
