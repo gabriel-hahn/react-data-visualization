@@ -12,7 +12,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-[Gabriel Hahn Schaeffer](https://github.com/gabriel-hahn/) | react.school - Teacher of core functionalities w/o tests and CI.
+[Gabriel Hahn Schaeffer](https://github.com/gabriel-hahn/) | react.school - Teacher of core idea but w/o current structure, tests and CI.
 
 See also the list of [contributors](https://github.com/gabriel-hahn/react-data-visualization/contributors) who participated in this project.
 
