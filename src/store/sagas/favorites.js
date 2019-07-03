@@ -9,11 +9,18 @@ export function* getFavoritesPrice() {
     const favorites = yield select(state => state.favorites.items);
 
     if (favorites.length > 0) {
-      let coinsSymbolsStr = favorites.reduce((symbols, coin) => symbols.concat(coin.CoinInfo.Name).concat(','), '');
+      let coinsSymbolsStr = favorites.reduce(
+        (symbols, coin) => symbols.concat(coin.Name).concat(','),
+        '',
+      );
       coinsSymbolsStr = coinsSymbolsStr.substring(0, coinsSymbolsStr.length - 1); // Remove last coma
-      
-      const prices = yield call(api.get, `/data/pricemultifull?fsyms=${coinsSymbolsStr}&tsyms=USD`);
-      console.log(prices);
+
+      const { data } = yield call(
+        api.get,
+        `/data/pricemultifull?fsyms=${coinsSymbolsStr}&tsyms=USD`,
+      );
+
+      yield put(FavoritesActions.setPricesRequest(Object.values(data.RAW)));
     }
   } catch (err) {
     yield put(ErrorActions.setError('Something wrong happened!'));

@@ -31,4 +31,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators(FavoritesActions, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ConfirmButton);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ConfirmButton);

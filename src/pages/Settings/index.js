@@ -47,7 +47,7 @@ class Settings extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({...CoinsActions, ...FavoritesActions}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ ...CoinsActions, ...FavoritesActions }, dispatch);
 
 export default connect(
   null,

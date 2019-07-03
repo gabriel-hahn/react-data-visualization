@@ -21,11 +21,9 @@ class CoinGrid extends Component {
     ),
     favorites: PropTypes.arrayOf(
       PropTypes.shape({
-        CoinInfo: PropTypes.shape({
-          Id: PropTypes.string.isRequired,
-          FullName: PropTypes.string.isRequired,
-          ImageUrl: PropTypes.string.isRequired,
-        }),
+        Id: PropTypes.string.isRequired,
+        FullName: PropTypes.string.isRequired,
+        ImageUrl: PropTypes.string.isRequired,
       }),
     ),
     addFavorite: PropTypes.func.isRequired,
@@ -50,7 +48,7 @@ class CoinGrid extends Component {
   isFavorite = (coin) => {
     const { favorites } = this.props;
 
-    return favorites.filter(favorite => favorite.CoinInfo.Id === coin.CoinInfo.Id).length > 0;
+    return favorites.filter(favorite => favorite.Id === coin.CoinInfo.Id).length > 0;
   };
 
   render() {
@@ -79,8 +77,7 @@ const mapStateToProps = state => ({
   coins:
     state.coins.items.filter(
       coin => !coin.excluded
-        || state.favorites.items.filter(favorite => favorite.CoinInfo.Id === coin.CoinInfo.Id).length
-          > 0,
+        || state.favorites.items.filter(favorite => favorite.Id === coin.CoinInfo.Id).length > 0,
     ) || [],
   favorites: state.favorites.items || [],
 });
