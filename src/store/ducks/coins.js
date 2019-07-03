@@ -26,7 +26,7 @@ export default function Coins(state = INITIAL_STATE, action) {
     case Types.REMOVE_FAVORITE:
       return {
         ...state,
-        favorites: state.favorites.filter(coin => coin !== action.payload.favorite),
+        favorites: state.favorites.filter(coin => coin.CoinInfo.Id !== action.payload.favorite.CoinInfo.Id),
       };
     case Types.SET_FILTER:
       return {
