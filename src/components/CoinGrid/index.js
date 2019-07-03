@@ -72,7 +72,8 @@ class CoinGrid extends Component {
 }
 
 const mapStateToProps = state => ({
-  coins: state.coins.items || [],
+  coins:
+    state.coins.items.filter(coin => !coin.excluded || state.coins.favorites.includes(coin)) || [],
   favorites: state.coins.favorites || [],
 });
 

@@ -3,6 +3,7 @@ export const Types = {
   SET_COINS_REQUEST: 'coins/SET_COINS_REQUEST',
   ADD_FAVORITE: 'coins/ADD_FAVORITE',
   REMOVE_FAVORITE: 'coins/REMOVE_FAVORITE',
+  SET_FILTER: 'coins/SET_FILTER',
 };
 
 const INITIAL_STATE = {
@@ -24,6 +25,14 @@ export default function Coins(state = INITIAL_STATE, action) {
         ...state,
         favorites: state.favorites.filter(coin => coin !== action.payload.favorite),
       };
+    case Types.SET_FILTER:
+      return {
+        ...state,
+        items: state.items.map(coin => ({
+          ...coin,
+          excluded: !coin.CoinInfo.FullName.startsWith(action.payload.filter),
+        })),
+      };
     default:
       return state;
   }
@@ -34,4 +43,5 @@ export const Creators = {
   setCoinsRequest: coins => ({ type: Types.SET_COINS_REQUEST, payload: { coins } }),
   addFavorite: favorite => ({ type: Types.ADD_FAVORITE, payload: { favorite } }),
   removeFavorite: favorite => ({ type: Types.REMOVE_FAVORITE, payload: { favorite } }),
+  setFilter: filter => ({ type: Types.SET_FILTER, payload: { filter } }),
 };
