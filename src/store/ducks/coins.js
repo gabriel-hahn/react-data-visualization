@@ -24,9 +24,10 @@ export default function Coins(state = INITIAL_STATE, action) {
     case Types.ADD_FAVORITE_STORAGE:
       return { ...state, favorites: action.payload.favorites };
     case Types.REMOVE_FAVORITE:
+      const { favorite } = action.payload;
       return {
         ...state,
-        favorites: state.favorites.filter(coin => coin.CoinInfo.Id !== action.payload.favorite.CoinInfo.Id),
+        favorites: state.favorites.filter(coin => coin.CoinInfo.Id !== favorite.CoinInfo.Id),
       };
     case Types.SET_FILTER:
       return {
