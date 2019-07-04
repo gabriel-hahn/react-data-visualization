@@ -17,14 +17,9 @@ class Settings extends Component {
   };
 
   componentDidMount() {
-    const { getCoinsRequest, addFavoriteStorage } = this.props;
-    const favorites = localStorage.getItem('cryptodash@dataFavorites');
+    const { getCoinsRequest } = this.props;
 
     getCoinsRequest();
-
-    if (favorites) {
-      addFavoriteStorage(JSON.parse(favorites));
-    }
   }
 
   handleConfirmButtonClick = () => {
