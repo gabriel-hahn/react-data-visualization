@@ -9,7 +9,7 @@ const Routes = () => (
   <Switch>
     <Route exact path="/settings" component={Settings} />
     <Route exact path="/dashboard" component={Dashboard} />
-    <Redirect from="/" to="settings" />
+    <Redirect from="/" to="dashboard" />
   </Switch>
 );
 

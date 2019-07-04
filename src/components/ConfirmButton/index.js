@@ -9,7 +9,7 @@ import { Container, Button } from './styles';
 class ConfirmButton extends Component {
   handleButtonClick = () => {
     const { favorites, getPricesRequest } = this.props;
-    localStorage.setItem('dataFavorites', JSON.stringify(favorites));
+    localStorage.setItem('cryptodash@dataFavorites', JSON.stringify(favorites));
 
     getPricesRequest();
   };

@@ -28,7 +28,7 @@ describe('Bar Component', () => {
 
     it('Should start with Dashboard option selected', () => {
       const favorites = [{ id: 1 }, { id: 2 }];
-      localStorage.setItem('cryptoDash', JSON.stringify(favorites));
+      localStorage.setItem('cryptodash@dataFavorites', JSON.stringify(favorites));
 
       wrapper = shallow(<Bar />);
 

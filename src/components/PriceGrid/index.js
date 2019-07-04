@@ -33,7 +33,7 @@ class PriceGrid extends Component {
 
     return (
       <Container>
-        {items.map(coin => (
+        {items.map(coin => coin.price && (
           <PriceTile
             selected={currentFavorite === coin}
             key={coin.Id}

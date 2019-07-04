@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { Creators as FavoritesActions } from '../../store/ducks/favorites';
 
 import { Container, Logo, RouterLink, Button } from './styles';
 
@@ -13,10 +17,15 @@ class Bar extends Component {
   };
 
   componentDidMount() {
-    const cryptoDashData = JSON.parse(localStorage.getItem('cryptoDash'));
+    const { getPricesRequest, addFavoriteStorage } = this.props;
+    const cryptoDashData = JSON.parse(localStorage.getItem('cryptodash@dataFavorites'));
 
     if (!cryptoDashData) {
       this.setState({ current: VALUES.SETTINGS });
+    }
+    else {
+      addFavoriteStorage(cryptoDashData);
+      getPricesRequest();
     }
   }
 
@@ -48,4 +57,6 @@ class Bar extends Component {
   }
 }
 
-export default Bar;
+const mapDispatchToProps = dispatch => bindActionCreators(FavoritesActions, dispatch);
+
+export default connect(null, mapDispatchToProps)(Bar);
