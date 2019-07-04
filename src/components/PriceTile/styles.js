@@ -1,8 +1,14 @@
 import styled, { css } from 'styled-components';
 import { SelectableTile } from '../../styles/tile';
-import { fontSizeBig } from '../../styles/shared';
+import { fontSizeBig, greenBoxShadow } from '../../styles/shared';
 
-export const Container = styled(SelectableTile)``;
+export const Container = styled(SelectableTile)`
+  ${props => props.selected
+    && css`
+      ${greenBoxShadow}
+      pointer-events: none;
+    `}
+`;
 
 export const CoinHeader = styled.div`
   display: flex;

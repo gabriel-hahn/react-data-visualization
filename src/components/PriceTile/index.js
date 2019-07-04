@@ -16,15 +16,21 @@ export default class PriceTile extends Component {
       }).isRequired,
       Name: PropTypes.string.isRequired,
     }).isRequired,
+    selected: PropTypes.bool,
+    selectFavorite: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    selected: false,
   };
 
   formatPrice = price => price.toString().slice(0, 7);
 
   render() {
-    const { coin } = this.props;
+    const { coin, selected, selectFavorite } = this.props;
 
     return (
-      <Container>
+      <Container selected={selected} onClick={() => selectFavorite(coin)}>
         <CoinHeader>
           {coin.Name}
           <ChangePct red={coin.price.USD.CHANGEPCT24HOUR < 0}>

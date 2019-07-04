@@ -7,7 +7,9 @@ import PriceTile from '../PriceTile';
 import { Container } from './styles';
 
 class PriceGrid extends Component {
-  componentDidMount() {}
+  state = {
+    currentFavorite: null,
+  };
 
   static propTypes = {
     items: PropTypes.arrayOf(
@@ -17,13 +19,27 @@ class PriceGrid extends Component {
     ).isRequired,
   };
 
+  handleFavoriteClick = (coin) => {
+    const { currentFavorite } = this.state;
+
+    if (currentFavorite !== coin) {
+      this.setState({ currentFavorite: coin });
+    }
+  };
+
   render() {
     const { items } = this.props;
+    const { currentFavorite } = this.state;
 
     return (
       <Container>
         {items.map(coin => (
-          <PriceTile key={coin.Id} coin={coin} />
+          <PriceTile
+            selected={currentFavorite === coin}
+            key={coin.Id}
+            coin={coin}
+            selectFavorite={this.handleFavoriteClick}
+          />
         ))}
       </Container>
     );
