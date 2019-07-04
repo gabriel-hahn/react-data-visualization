@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-import ControlButton from '../ControlButton';
-
-import { Container, Logo, RouterLink } from './styles';
+import { Container, Logo, RouterLink, Button } from './styles';
 
 const VALUES = {
   DASHBOARD: 'Dashboard',
@@ -34,18 +32,16 @@ class Bar extends Component {
         <Logo>CryptoDash</Logo>
         <div />
         <RouterLink to="/dashboard">
-          <ControlButton
-            select={() => this.handleClick(VALUES.DASHBOARD)}
-            name={VALUES.DASHBOARD}
+          <Button
+            onClick={() => this.handleClick(VALUES.DASHBOARD)}
             active={current === VALUES.DASHBOARD}
-          />
+          >{VALUES.DASHBOARD}</Button>
         </RouterLink>
         <RouterLink to="/settings">
-          <ControlButton
-            select={() => this.handleClick(VALUES.SETTINGS)}
-            name={VALUES.SETTINGS}
+          <Button
+            onClick={() => this.handleClick(VALUES.SETTINGS)}
             active={current === VALUES.SETTINGS}
-          />
+          >{VALUES.SETTINGS}</Button>
         </RouterLink>
       </Container>
     );

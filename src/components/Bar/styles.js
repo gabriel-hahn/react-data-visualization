@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
@@ -16,3 +16,14 @@ export const RouterLink = styled(Link)`
   text-decoration: none;
   color: #fff;
 `;
+
+export const Button = styled.div`
+  cursor: pointer;
+  width: 20px;
+  ${props => props.active
+    && css`
+      border-bottom: 2px solid #fff;
+    `}
+`;
+
+Button.displayName = "Button";
