@@ -26,4 +26,4 @@ export const Button = styled.div`
     `}
 `;
 
-Button.displayName = "Button";
+Button.displayName = 'Button';

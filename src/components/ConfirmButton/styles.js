@@ -16,3 +16,5 @@ export const Button = styled.div`
     ${greenBoxShadow}
   }
 `;
+
+Button.displayName = 'Button';
