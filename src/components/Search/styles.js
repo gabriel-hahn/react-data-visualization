@@ -16,3 +16,5 @@ export const SearchInput = styled.input`
   align-self: center;
   justify-self: left;
 `;
+
+SearchInput.displayName = 'SearchInput';

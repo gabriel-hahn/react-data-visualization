@@ -15,7 +15,7 @@ class Search extends Component {
   handleFilterCoin = (event) => {
     const { setFilter } = this.props;
     const inputValue = event.target.value;
-
+    
     setFilter(inputValue);
   };
 
