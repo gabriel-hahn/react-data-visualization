@@ -6,3 +6,10 @@ export const Container = styled.div`
   grid-gap: 15px;
   grid-template-columns: 1fr 3fr;
 `;
+
+export const CoinImage = styled.img`
+  padding-top: 10px;
+  margin: auto;
+  display: block;
+  height: 200px;
+`;
