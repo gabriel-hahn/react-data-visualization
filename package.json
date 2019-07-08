@@ -39,9 +39,7 @@
     "jest": {
         "collectCoverageFrom": [
             "src/components/**/*.js",
-            "src/App.js",
             "src/pages/**/*.js",
-            "src/routes/*.js",
             "src/store/**/*.js"
         ]
     },
