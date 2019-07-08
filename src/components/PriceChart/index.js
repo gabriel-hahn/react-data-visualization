@@ -1,9 +1,11 @@
+import highChartsConfig, { highChartsTheme } from '../../config/HighchartsConfig';
 import React, { Component } from 'react';
 import ReactHighCharts from 'react-highcharts';
 import { Tile } from '../../styles/tile';
-import highChartsConfig from '../../config/HighchartsConfig';
 
 import { Container } from './styles';
+
+ReactHighCharts.Highcharts.setOptions(highChartsTheme);
 
 export default class PriceChart extends Component {
   render() {
