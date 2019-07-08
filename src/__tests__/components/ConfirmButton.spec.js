@@ -6,10 +6,12 @@ import ConfirmButton from '../../components/ConfirmButton';
 
 const INITIAL_STATE = {
   favorites: {
-    items: [{
-      Name: 'Bitcoin'
-    }]
-  }
+    items: [
+      {
+        Name: 'Bitcoin',
+      },
+    ],
+  },
 };
 
 const mockStore = createStore();

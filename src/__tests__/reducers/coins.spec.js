@@ -4,16 +4,16 @@ const INITIAL_STATE = {
   items: [
     {
       CoinInfo: {
-        FullName: 'Bitcoin'
+        FullName: 'Bitcoin',
       },
       excluded: false,
     },
     {
       CoinInfo: {
-        FullName: 'DogCoin'
+        FullName: 'DogCoin',
       },
       excluded: false,
-    }
+    },
   ],
   loading: false,
 };
@@ -27,7 +27,10 @@ describe('Coins reducer', () => {
   });
 
   it('Should be able to set new items', () => {
-    const state = coinsReducer({ items: [], loading: true }, CoinsActions.setCoinsRequest(INITIAL_STATE.items));
+    const state = coinsReducer(
+      { items: [], loading: true },
+      CoinsActions.setCoinsRequest(INITIAL_STATE.items),
+    );
 
     expect(state.loading).toBe(false);
     expect(state.items).toBe(INITIAL_STATE.items);
