@@ -6,15 +6,12 @@ export const Types = {
 
 const INITIAL_STATE = {
   items: [],
-  loading: false,
 };
 
 export default function Coins(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.GET_COINS_REQUEST:
-      return { ...state, loading: true };
     case Types.SET_COINS_REQUEST:
-      return { ...state, loading: false, items: action.payload.coins };
+      return { ...state, items: action.payload.coins };
     case Types.SET_FILTER:
       return {
         ...state,

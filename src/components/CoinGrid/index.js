@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { WaveSpinner } from 'react-spinners-kit';
 import PropTypes from 'prop-types';
 
 import { Creators as FavoritesActions } from '../../store/ducks/favorites';
 
 import { SelectableTile } from '../../styles/tile';
-import { Container, CoinImage, CoinText } from './styles';
+import {
+  Container, CoinImage, CoinText, Loading,
+} from './styles';
 
 class CoinGrid extends Component {
   static propTypes = {
@@ -57,8 +60,8 @@ class CoinGrid extends Component {
 
     return (
       <Container>
-        {coins.length > 0
-          && coins.map(coin => (
+        {coins.length > 0 ? (
+          coins.map(coin => (
             <SelectableTile
               selected={this.isFavorite(coin)}
               key={coin.CoinInfo.Id}
@@ -67,7 +70,12 @@ class CoinGrid extends Component {
               <CoinText>{coin.CoinInfo.FullName}</CoinText>
               <CoinImage src={`${API_URL}${coin.CoinInfo.ImageUrl}`} alt={coin.CoinInfo.FullName} />
             </SelectableTile>
-          ))}
+          ))
+        ) : (
+          <Loading>
+            <WaveSpinner size={50} color="#42ff3a" />
+          </Loading>
+        )}
       </Container>
     );
   }

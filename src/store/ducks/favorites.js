@@ -11,17 +11,13 @@ export const Types = {
 const INITIAL_STATE = {
   items: [],
   current: null,
-  loading: false,
 };
 
 export default function Coins(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.GET_PRICES_REQUEST:
-      return { ...state, loading: true };
     case Types.SET_PRICES_REQUEST:
       return {
         ...state,
-        loading: false,
         items: state.items.map(favorite => ({
           ...favorite,
           price: action.payload.prices.find(price => price.USD.FROMSYMBOL === favorite.Name),

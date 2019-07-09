@@ -12,4 +12,10 @@ export const CoinImage = styled.img`
   height: 45px;
 `;
 
+export const Loading = styled.div`
+  display: grid;
+  justify-content: center;
+  padding-top: 100px;
+`;
+
 export const CoinText = styled.h2``;

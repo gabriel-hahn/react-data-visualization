@@ -11,6 +11,7 @@
         "react-redux": "^7.0.1",
         "react-router-dom": "^4.3.1",
         "react-scripts": "3.0.1",
+        "react-spinners-kit": "^1.9.0",
         "reactotron-react-js": "^3.0.1",
         "reactotron-redux": "^3.1.0",
         "reactotron-redux-saga": "^4.2.0",
