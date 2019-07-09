@@ -21,7 +21,7 @@
     },
     "devDependencies": {
         "axios-mock-adapter": "^1.16.0",
-        "coveralls": "^2.13.0",
+        "coveralls": "^3.0.4",
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.13.0",
         "eslint-config-airbnb": "^17.1.0",
@@ -33,9 +33,10 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
+        "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
-        "coveralls": "npm test --coverage --coverageReporters=text-lcov | coveralls"
+        "coverage": "react-scripts test --env=jsdom --coverage",
+        "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
     },
     "jest": {
         "collectCoverageFrom": [
