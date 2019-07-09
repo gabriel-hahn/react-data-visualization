@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Tile } from '../../styles/tile';
+import PropTypes from 'prop-types';
 
 import PriceChart from '../PriceChart';
 
+import { Tile } from '../../styles/tile';
 import { Container, CoinImage } from './styles';
 
 class CoinSpotlight extends Component {
+  static propTypes = {
+    currentFavorite: PropTypes.shape({
+      FullName: PropTypes.string.isRequired,
+      ImageUrl: PropTypes.string.isRequired,
+    }),
+  };
+
+  static defaultProps = {
+    currentFavorite: null,
+  };
+
   render() {
     const API_URL = 'http://cryptocompare.com/';
     const { currentFavorite } = this.props;

@@ -15,6 +15,12 @@ export default function ({ Name, historical }) {
       },
     },
 
+    xAxis: {
+      title: {
+        text: 'Days',
+      },
+    },
+
     legend: {
       layout: 'vertical',
       align: 'right',

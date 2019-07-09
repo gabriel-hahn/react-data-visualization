@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const CoinImage = styled.img`
-  padding-top: 10px;
+  padding-top: 60px;
   margin: auto;
   display: block;
   height: 200px;
