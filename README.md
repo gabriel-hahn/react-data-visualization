@@ -4,6 +4,18 @@
 
 A ReactJS web application that shows current value of Bitcoin and others currencies.
 
+## Getting Started
+
+To run this project locally, you need to install all dependencies using <strong>Yarn</strong> ```$ yarn``` or <strong>NPM</strong> ```$ npm i```.
+
+#### Starting 
+
+Run the following command to start the project on localhost:3000
+
+```
+$ yarn start
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
