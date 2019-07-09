@@ -19,7 +19,7 @@ class PriceGrid extends Component {
     currentFavorite: PropTypes.shape({
       Id: PropTypes.string.isRequired,
     }),
-    setCurrent: PropTypes.func.isRequired,
+    getHistoricalRequest: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -27,10 +27,10 @@ class PriceGrid extends Component {
   };
 
   handleFavoriteClick = (coin) => {
-    const { currentFavorite, setCurrent } = this.props;
+    const { currentFavorite, getHistoricalRequest } = this.props;
 
     if (currentFavorite !== coin) {
-      setCurrent(coin);
+      getHistoricalRequest(coin);
     }
   };
 

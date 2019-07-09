@@ -1,5 +1,6 @@
 export const Types = {
   GET_PRICES_REQUEST: 'coins/GET_PRICES_REQUEST',
+  GET_HISTORICAL_REQUEST: 'coins/GET_HISTORICAL_REQUEST',
   SET_PRICES_REQUEST: 'coins/SET_PRICES_REQUEST',
   ADD_FAVORITE: 'coins/ADD_FAVORITE',
   SET_CURRENT: 'coins/SET_CURRENT',
@@ -44,6 +45,7 @@ export default function Coins(state = INITIAL_STATE, action) {
 
 export const Creators = {
   getPricesRequest: () => ({ type: Types.GET_PRICES_REQUEST }),
+  getHistoricalRequest: coin => ({ type: Types.GET_HISTORICAL_REQUEST, payload: { coin } }),
   setPricesRequest: prices => ({ type: Types.SET_PRICES_REQUEST, payload: { prices } }),
   addFavorite: favorite => ({ type: Types.ADD_FAVORITE, payload: { favorite } }),
   setCurrent: current => ({ type: Types.SET_CURRENT, payload: { current } }),

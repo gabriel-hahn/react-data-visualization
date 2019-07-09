@@ -13,7 +13,9 @@ export function* getFavoritesPrice() {
         (symbols, coin) => symbols.concat(coin.Name).concat(','),
         '',
       );
-      coinsSymbolsStr = coinsSymbolsStr.substring(0, coinsSymbolsStr.length - 1); // Remove last coma
+
+      // Remove last coma
+      coinsSymbolsStr = coinsSymbolsStr.substring(0, coinsSymbolsStr.length - 1);
 
       const { data } = yield call(
         api.get,
@@ -22,6 +24,22 @@ export function* getFavoritesPrice() {
 
       yield put(FavoritesActions.setPricesRequest(Object.values(data.RAW)));
     }
+  } catch (err) {
+    yield put(ErrorActions.setError('Something wrong happened!'));
+  }
+}
+
+export function* getFavoriteHistorical({ payload }) {
+  try {
+    const { data } = yield call(
+      api.get,
+      `/data/histoday?fsym=${payload.coin.Name}&tsym=USD&limit=10`,
+    );
+
+    const { coin } = payload;
+    coin.historical = data.Data;
+
+    yield put(FavoritesActions.setCurrent(coin));
   } catch (err) {
     yield put(ErrorActions.setError('Something wrong happened!'));
   }
