@@ -1,5 +1,7 @@
 # React Data Visualization
 
+[![Build Status](https://travis-ci.org/gabriel-hahn/react-data-visualization.svg?branch=master)](https://travis-ci.org/gabriel-hahn/react-data-visualization) [![Coverage Status](https://coveralls.io/repos/github/gabriel-hahn/react-data-visualization/badge.svg?branch=master)](https://coveralls.io/github/gabriel-hahn/react-data-visualization?branch=master) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c8f81b6145594ddfb292c5d8cd44e46a)](https://www.codacy.com/app/gabriel_hahn/react-data-visualization?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gabriel-hahn/react-data-visualization&amp;utm_campaign=Badge_Grade) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/gabriel-hahn/react-data-visualization/pulls) [![Bugs](https://img.shields.io/github/issues/gabriel-hahn/react-data-visualization/bug.svg)](https://github.com/gabriel-hahn/react-data-visualization/issues?utf8=?&q=is%3Aissue+is%3Aopen+label%3Abug) [![The MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+
 A ReactJS web application that shows current value of Bitcoin and others currencies.
 
 ## Contributing
