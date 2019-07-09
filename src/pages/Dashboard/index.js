@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { Notification } from '../../utils/Notification';
+
 import PriceGrid from '../../components/PriceGrid';
 import CoinSpotlight from '../../components/CoinSpotlight';
 
@@ -17,8 +19,9 @@ class Dashboard extends Component {
     const { history } = this.props;
     const favorites = this.getFavoritesStorage();
 
-    if (favorites.length === 0) {
+    if (!favorites) {
       history.push('/settings');
+      Notification.favoriteIsMandatory();
     }
   }
 

@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './config/reactotron';
 import { GlobalStyle } from './styles/global';
@@ -15,6 +17,7 @@ const App = () => (
     <BrowserRouter>
       <Fragment>
         <GlobalStyle />
+        <ToastContainer />
         <Bar />
         <Routes />
       </Fragment>

@@ -1,6 +1,8 @@
 import { call, put, select } from 'redux-saga/effects';
 import api from '../../services/api';
 
+import { Notification } from '../../utils/Notification';
+
 import { Creators as FavoritesActions } from '../ducks/favorites';
 import { Creators as ErrorActions } from '../ducks/error';
 
@@ -25,7 +27,8 @@ export function* getFavoritesPrice() {
       yield put(FavoritesActions.setPricesRequest(Object.values(data.RAW)));
     }
   } catch (err) {
-    yield put(ErrorActions.setError('Something wrong happened!'));
+    yield put(ErrorActions.setError('Something wrong happened! Try again'));
+    Notification.somethingWrong();
   }
 }
 
@@ -41,6 +44,7 @@ export function* getFavoriteHistorical({ payload }) {
 
     yield put(FavoritesActions.setCurrent(coin));
   } catch (err) {
-    yield put(ErrorActions.setError('Something wrong happened!'));
+    yield put(ErrorActions.setError('Something wrong happened! Try again'));
+    Notification.somethingWrong();
   }
 }
