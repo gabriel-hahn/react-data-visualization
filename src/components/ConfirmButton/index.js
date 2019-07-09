@@ -10,15 +10,6 @@ import { Container, Button } from './styles';
 class ConfirmButton extends Component {
   static propTypes = {
     getPricesRequest: PropTypes.func.isRequired,
-    favorites: PropTypes.arrayOf(
-      PropTypes.shape({
-        Name: PropTypes.string.isRequired,
-      }),
-    ),
-  };
-
-  static defaultProps = {
-    favorites: null,
   };
 
   handleButtonClick = () => {
