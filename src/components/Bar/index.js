@@ -26,7 +26,7 @@ class Bar extends Component {
 
   componentDidMount() {
     const { getPricesRequest, addFavoriteStorage } = this.props;
-    const cryptoDashData = JSON.parse(localStorage.getItem('cryptodash@dataFavorites'));
+    const cryptoDashData = this.getFavoritesStorage();
 
     if (!cryptoDashData) {
       this.setState({ current: VALUES.SETTINGS });
@@ -35,6 +35,18 @@ class Bar extends Component {
       getPricesRequest();
     }
   }
+
+  getFavoritesStorage = () => JSON.parse(localStorage.getItem('cryptodash@dataFavorites'));
+
+  barOptionsValidade = (selected) => {
+    const cryptoDashData = this.getFavoritesStorage();
+
+    if (selected === VALUES.DASHBOARD) {
+      this.setState({ current: !cryptoDashData ? VALUES.SETTINGS : VALUES.DASHBOARD });
+    } else {
+      this.setState({ current: selected });
+    }
+  };
 
   handleClick = (current) => {
     this.setState({ current });
@@ -49,7 +61,7 @@ class Bar extends Component {
         <div />
         <RouterLink to="/dashboard">
           <Button
-            onClick={() => this.handleClick(VALUES.DASHBOARD)}
+            onClick={() => this.barOptionsValidade(VALUES.DASHBOARD)}
             active={current === VALUES.DASHBOARD}
           >
             {VALUES.DASHBOARD}
@@ -57,7 +69,7 @@ class Bar extends Component {
         </RouterLink>
         <RouterLink to="/settings">
           <Button
-            onClick={() => this.handleClick(VALUES.SETTINGS)}
+            onClick={() => this.barOptionsValidade(VALUES.SETTINGS)}
             active={current === VALUES.SETTINGS}
           >
             {VALUES.SETTINGS}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import PriceGrid from '../../components/PriceGrid';
 import CoinSpotlight from '../../components/CoinSpotlight';
@@ -7,7 +7,22 @@ import CoinSpotlight from '../../components/CoinSpotlight';
 import { Container } from './styles';
 
 class Dashboard extends Component {
-  componentDidMount() {}
+  static propTypes = {
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
+  };
+
+  componentDidMount() {
+    const { history } = this.props;
+    const favorites = this.getFavoritesStorage();
+
+    if (favorites.length === 0) {
+      history.push('/settings');
+    }
+  }
+
+  getFavoritesStorage = () => JSON.parse(localStorage.getItem('cryptodash@dataFavorites'));
 
   render() {
     return (
@@ -19,8 +34,4 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  coin: state.favorites.items,
-});
-
-export default connect(mapStateToProps)(Dashboard);
+export default Dashboard;
