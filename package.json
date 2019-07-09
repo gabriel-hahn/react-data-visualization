@@ -1,7 +1,6 @@
 {
     "name": "react-data-visualization",
     "version": "0.1.0",
-    "private": true,
     "dependencies": {
         "axios": "^0.18.0",
         "prop-types": "^15.7.2",
@@ -21,7 +20,7 @@
     },
     "devDependencies": {
         "axios-mock-adapter": "^1.16.0",
-        "coveralls": "^3.0.4",
+        "coveralls": "^2.13.0",
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.13.0",
         "eslint-config-airbnb": "^17.1.0",
@@ -33,10 +32,9 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
+        "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "coverage": "react-scripts test --env=jsdom --coverage",
-        "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+        "coveralls": "yarn test --coverage --watchAll=false --coverageReporters=text-lcov | coveralls"
     },
     "jest": {
         "collectCoverageFrom": [
