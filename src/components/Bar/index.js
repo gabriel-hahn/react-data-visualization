@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import { Creators as FavoritesActions } from '../../store/ducks/favorites';
 
-import { Container, Logo, RouterLink, Button } from './styles';
+import {
+  Container, Logo, RouterLink, Button,
+} from './styles';
 
 const VALUES = {
   DASHBOARD: 'Dashboard',
@@ -16,14 +19,18 @@ class Bar extends Component {
     current: VALUES.DASHBOARD,
   };
 
+  static propTypes = {
+    getPricesRequest: PropTypes.func.isRequired,
+    addFavoriteStorage: PropTypes.func.isRequired,
+  };
+
   componentDidMount() {
     const { getPricesRequest, addFavoriteStorage } = this.props;
     const cryptoDashData = JSON.parse(localStorage.getItem('cryptodash@dataFavorites'));
 
     if (!cryptoDashData) {
       this.setState({ current: VALUES.SETTINGS });
-    }
-    else {
+    } else {
       addFavoriteStorage(cryptoDashData);
       getPricesRequest();
     }
@@ -44,13 +51,17 @@ class Bar extends Component {
           <Button
             onClick={() => this.handleClick(VALUES.DASHBOARD)}
             active={current === VALUES.DASHBOARD}
-          >{VALUES.DASHBOARD}</Button>
+          >
+            {VALUES.DASHBOARD}
+          </Button>
         </RouterLink>
         <RouterLink to="/settings">
           <Button
             onClick={() => this.handleClick(VALUES.SETTINGS)}
             active={current === VALUES.SETTINGS}
-          >{VALUES.SETTINGS}</Button>
+          >
+            {VALUES.SETTINGS}
+          </Button>
         </RouterLink>
       </Container>
     );
@@ -59,4 +70,7 @@ class Bar extends Component {
 
 const mapDispatchToProps = dispatch => bindActionCreators(FavoritesActions, dispatch);
 
-export default connect(null, mapDispatchToProps)(Bar);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Bar);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import { Creators as CoinsActions } from '../../store/ducks/coins';
 import { Creators as FavoritesActions } from '../../store/ducks/favorites';
@@ -14,6 +15,10 @@ import { Container, Title } from './styles';
 class Settings extends Component {
   state = {
     showTitle: true,
+  };
+
+  static propTypes = {
+    getCoinsRequest: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
