@@ -42,5 +42,5 @@ it('Should return a network error', async () => {
     getCoins,
   ).toPromise();
 
-  expect(dispatched).toContainEqual(ErrorActions.setError('Something wrong happened!'));
+  expect(dispatched).toContainEqual(ErrorActions.setError('Something wrong happened! Try again'));
 });
