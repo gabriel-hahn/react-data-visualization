@@ -13,3 +13,5 @@ export const CoinImage = styled.img`
   display: block;
   height: 200px;
 `;
+
+CoinImage.displayName = 'CoinImage';

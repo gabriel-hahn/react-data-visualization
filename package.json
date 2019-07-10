@@ -41,7 +41,8 @@
         "collectCoverageFrom": [
             "src/components/**/*.js",
             "src/pages/**/*.js",
-            "src/store/**/*.js"
+            "src/store/**/*.js",
+            "!src/store/**/index.js"
         ]
     },
     "eslintConfig": {
