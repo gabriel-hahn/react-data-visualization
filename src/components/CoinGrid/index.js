@@ -11,6 +11,8 @@ import {
   Container, CoinImage, CoinText, Loading,
 } from './styles';
 
+const API_URL = 'http://cryptocompare.com/';
+
 class CoinGrid extends Component {
   static propTypes = {
     coins: PropTypes.arrayOf(
@@ -55,7 +57,6 @@ class CoinGrid extends Component {
   };
 
   render() {
-    const API_URL = 'http://cryptocompare.com/';
     const { coins } = this.props;
 
     return (
@@ -72,10 +73,10 @@ class CoinGrid extends Component {
             </SelectableTile>
           ))
         ) : (
-          <Loading>
-            <WaveSpinner size={50} color="#42ff3a" />
-          </Loading>
-        )}
+            <Loading>
+              <WaveSpinner size={50} color="#42ff3a" />
+            </Loading>
+          )}
       </Container>
     );
   }

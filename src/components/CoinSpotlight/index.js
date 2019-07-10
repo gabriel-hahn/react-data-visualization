@@ -7,6 +7,8 @@ import PriceChart from '../PriceChart';
 import { Tile } from '../../styles/tile';
 import { Container, CoinImage } from './styles';
 
+const API_URL = 'http://cryptocompare.com/';
+
 class CoinSpotlight extends Component {
   static propTypes = {
     currentFavorite: PropTypes.shape({
@@ -20,7 +22,6 @@ class CoinSpotlight extends Component {
   };
 
   render() {
-    const API_URL = 'http://cryptocompare.com/';
     const { currentFavorite } = this.props;
 
     return (

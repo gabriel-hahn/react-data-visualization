@@ -1,11 +1,11 @@
 export const Types = {
-  GET_PRICES_REQUEST: 'coins/GET_PRICES_REQUEST',
-  GET_HISTORICAL_REQUEST: 'coins/GET_HISTORICAL_REQUEST',
-  SET_PRICES_REQUEST: 'coins/SET_PRICES_REQUEST',
-  ADD_FAVORITE: 'coins/ADD_FAVORITE',
-  SET_CURRENT: 'coins/SET_CURRENT',
-  ADD_FAVORITE_STORAGE: 'coins/ADD_FAVORITE_STORAGE',
-  REMOVE_FAVORITE: 'coins/REMOVE_FAVORITE',
+  GET_PRICES_REQUEST: 'favorites/GET_PRICES_REQUEST',
+  GET_HISTORICAL_REQUEST: 'favorites/GET_HISTORICAL_REQUEST',
+  SET_PRICES_REQUEST: 'favorites/SET_PRICES_REQUEST',
+  ADD_FAVORITE: 'favorites/ADD_FAVORITE',
+  SET_CURRENT: 'favorites/SET_CURRENT',
+  ADD_FAVORITE_STORAGE: 'favorites/ADD_FAVORITE_STORAGE',
+  REMOVE_FAVORITE: 'favorites/REMOVE_FAVORITE',
 };
 
 const INITIAL_STATE = {
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
   current: null,
 };
 
-export default function Coins(state = INITIAL_STATE, action) {
+export default function Favorites(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.SET_PRICES_REQUEST:
       return {

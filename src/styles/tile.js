@@ -18,3 +18,5 @@ export const SelectableTile = styled(Tile)`
     ${greenBoxShadow}
   }
 `;
+
+SelectableTile.displayName = 'SelectableTile';

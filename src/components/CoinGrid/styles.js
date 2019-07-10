@@ -19,3 +19,7 @@ export const Loading = styled.div`
 `;
 
 export const CoinText = styled.h2``;
+
+CoinImage.displayName = 'CoinImage';
+CoinText.displayName = 'CoinText';
+Loading.displayName = 'Loading';
