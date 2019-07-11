@@ -16,6 +16,20 @@ Run the following command to start the project on localhost:3000
 $ yarn start
 ```
 
+## Tests
+
+Run the following command to execute all tests:
+
+```sh
+$ yarn test
+```
+
+To run tests with coverage:
+
+```sh
+$ yarn test --coverage --watchAll=false
+```
+
 ## Demo
 
 This project is [online](https://react-data-visualization.herokuapp.com/).
