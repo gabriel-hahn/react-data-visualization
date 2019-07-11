@@ -17,7 +17,7 @@ const INITIAL_STATE = {
     Id: '2',
     Name: 'DOGC',
     FullName: 'Dogcoin',
-  }
+  },
 };
 
 describe('Favorites reducer', () => {

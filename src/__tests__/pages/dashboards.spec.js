@@ -10,7 +10,7 @@ const fn = jest.fn();
 const props = {
   history: {
     push: fn,
-  }
+  },
 };
 
 let wrapper;

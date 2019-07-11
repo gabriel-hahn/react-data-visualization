@@ -17,7 +17,7 @@ const INITIAL_STATE = {
         time: 1231232131,
       }]
     },
-  }
+  },
 };
 
 const mockStore = createStore();

@@ -33,7 +33,7 @@ const INITIAL_STATE = {
       },
     ],
     current: null,
-  }
+  },
 };
 
 const mockStore = createStore();
@@ -45,7 +45,8 @@ beforeEach(() => {
   wrapper = mount(
     <Provider store={store}>
       <Settings />
-    </Provider>);
+    </Provider>
+  );
 });
 
 describe('Settings Component', () => {
@@ -63,7 +64,7 @@ describe('Settings Component', () => {
     it('Should return 1 Search component', () => {
       expect(wrapper.find('Search').length).toEqual(1);
     });
-    
+
     it('Should return 1 CoinGrid component', () => {
       expect(wrapper.find('CoinGrid').length).toEqual(1);
     });

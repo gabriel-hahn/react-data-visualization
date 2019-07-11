@@ -29,8 +29,8 @@ const STATE = {
         Name: 'DOGC',
         ImageUrl: 'url image 3',
       },
-    ]
-  }
+    ],
+  },
 };
 
 describe('Favorites Saga', () => {

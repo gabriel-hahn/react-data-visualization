@@ -18,7 +18,7 @@ const INITIAL_STATE = {
           USD: {
             CHANGEPCT24HOUR: -123,
             PRICE: 2131,
-          }
+          },
         },
       },
       {
@@ -30,7 +30,7 @@ const INITIAL_STATE = {
           USD: {
             CHANGEPCT24HOUR: 23,
             PRICE: 113122,
-          }
+          },
         },
       },
     ],
@@ -43,10 +43,10 @@ const INITIAL_STATE = {
         USD: {
           CHANGEPCT24HOUR: -123,
           PRICE: 2131,
-        }
+        },
       },
     },
-  }
+  },
 };
 
 const mockStore = createStore();

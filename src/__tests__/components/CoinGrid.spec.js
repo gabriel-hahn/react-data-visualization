@@ -43,7 +43,7 @@ const INITIAL_STATE = {
       },
     ],
     current: null,
-  }
+  },
 };
 
 const INITIAL_STATE_EMPTY = { coins: { items: [] }, favorites: { items: [] } };

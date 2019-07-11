@@ -19,10 +19,10 @@ const props = {
       USD: {
         CHANGEPCT24HOUR: -123,
         PRICE: 2131,
-      }
+      },
     },
   },
-}
+};
 
 beforeEach(() => {
   wrapper = shallow(<PriceTile {...props} />);

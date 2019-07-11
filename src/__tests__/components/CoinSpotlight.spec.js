@@ -11,7 +11,7 @@ const INITIAL_STATE = {
       FullName: 'Dogcoin',
       ImageUrl: 'url image 1',
     },
-  }
+  },
 };
 
 const mockStore = createStore();
