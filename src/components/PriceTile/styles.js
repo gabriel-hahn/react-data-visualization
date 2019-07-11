@@ -38,3 +38,5 @@ export const ChangePct = styled.div`
           color: green;
         `)}
 `;
+
+CoinHeader.displayName = 'CoinHeader';

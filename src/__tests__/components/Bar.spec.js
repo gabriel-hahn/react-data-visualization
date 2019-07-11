@@ -55,5 +55,12 @@ describe('Bar Component', () => {
       const instance = wrapper.instance();
       expect(instance.state.current).toEqual('Settings');
     });
+
+    it('Should change current selection', () => {
+      const instance = wrapper.instance();
+      instance.handleClick({ id: 3 });
+
+      expect(instance.state.current.id).toEqual(3);
+    });
   });
 });

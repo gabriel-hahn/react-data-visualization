@@ -5,7 +5,7 @@ import {
   Container, CoinHeader, TickerPrice, ChangePct,
 } from './styles';
 
-export default class PriceTile extends Component {
+class PriceTile extends Component {
   static propTypes = {
     coin: PropTypes.shape({
       price: PropTypes.shape({
@@ -48,3 +48,5 @@ $
     );
   }
 }
+
+export default PriceTile;

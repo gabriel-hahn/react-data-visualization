@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import createStore from 'redux-mock-store';
 
 import CoinGrid from '../../components/CoinGrid';
+
 import { Types as FavoritesTypes } from '../../store/ducks/favorites';
 
 const INITIAL_STATE = {
