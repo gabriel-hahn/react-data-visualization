@@ -24,7 +24,7 @@ describe('Favorites reducer', () => {
   it('Should be able to set prices request', () => {
     const prices = [
       { USD: { FROMSYMBOL: 'BTC', PRICE: 323 } },
-      { USD: { FROMSYMBOL: 'DOGC', PRICE: 12300 } }
+      { USD: { FROMSYMBOL: 'DOGC', PRICE: 12300 } },
     ];
 
     const state = favoritesReducer(INITIAL_STATE, FavoritesActions.setPricesRequest(prices));
@@ -41,7 +41,10 @@ describe('Favorites reducer', () => {
   });
 
   it('Should be able to set a new current favorite', () => {
-    const state = favoritesReducer(INITIAL_STATE, FavoritesActions.setCurrent(INITIAL_STATE.items[0]));
+    const state = favoritesReducer(
+      INITIAL_STATE,
+      FavoritesActions.setCurrent(INITIAL_STATE.items[0]),
+    );
     expect(state.current).toEqual(INITIAL_STATE.items[0]);
   });
 
@@ -52,7 +55,10 @@ describe('Favorites reducer', () => {
 
   it('Should be able to remove a favorite from items list', () => {
     const favoriteToRemove = { CoinInfo: { Id: '1', Name: 'BTC', FullName: 'Bitcoin' } };
-    const state = favoritesReducer(INITIAL_STATE, FavoritesActions.removeFavorite(favoriteToRemove));
+    const state = favoritesReducer(
+      INITIAL_STATE,
+      FavoritesActions.removeFavorite(favoriteToRemove),
+    );
 
     expect(state.items).toEqual([INITIAL_STATE.items[1]]);
   });

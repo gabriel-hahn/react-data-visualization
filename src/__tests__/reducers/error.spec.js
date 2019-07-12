@@ -22,7 +22,7 @@ describe('Error Reducer', () => {
 
   it('Should return current state when a wrong action be set or nothing be passed', () => {
     const state = errorReducer(INITIAL_STATE, { type: 'SET_WRONG_ACTION' });
-    
+
     expect(state).toBe(state);
   });
 });

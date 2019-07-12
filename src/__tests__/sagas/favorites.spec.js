@@ -66,7 +66,9 @@ describe('Favorites Saga', () => {
       () => getFavoriteHistorical(coin),
     ).toPromise();
 
-    expect(dispatched[0]).toEqual(FavoritesActions.setCurrent({ ...coin.payload.coin, historical: apiResponse.Data }));
+    expect(dispatched[0]).toEqual(
+      FavoritesActions.setCurrent({ ...coin.payload.coin, historical: apiResponse.Data }),
+    );
   });
 
   it('Should return a network error', async () => {

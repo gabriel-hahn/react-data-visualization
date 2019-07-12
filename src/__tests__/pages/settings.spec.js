@@ -45,7 +45,7 @@ beforeEach(() => {
   wrapper = mount(
     <Provider store={store}>
       <Settings />
-    </Provider>
+    </Provider>,
   );
 });
 

@@ -44,7 +44,7 @@ describe('PriceTile Component', () => {
       const instance = wrapper.instance();
       const priceFormated = instance.formatPrice(253213235458);
 
-      expect(priceFormated).toEqual("2532132");
+      expect(priceFormated).toEqual('2532132');
     });
   });
 });

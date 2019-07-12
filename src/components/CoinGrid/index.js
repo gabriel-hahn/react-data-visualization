@@ -73,10 +73,10 @@ class CoinGrid extends Component {
             </SelectableTile>
           ))
         ) : (
-            <Loading>
-              <WaveSpinner size={50} color="#42ff3a" />
-            </Loading>
-          )}
+          <Loading>
+            <WaveSpinner size={50} color="#42ff3a" />
+          </Loading>
+        )}
       </Container>
     );
   }

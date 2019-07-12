@@ -12,10 +12,12 @@ const INITIAL_STATE = {
       Name: 'DOGC',
       FullName: 'Dogcoin',
       ImageUrl: 'url image 1',
-      historical: [{
-        close: 123,
-        time: 1231232131,
-      }]
+      historical: [
+        {
+          close: 123,
+          time: 1231232131,
+        },
+      ],
     },
   },
 };
